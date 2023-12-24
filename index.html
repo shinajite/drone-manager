@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>位置情報記録サービス</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAS実行テスト</title>
 </head>
 <body>
-    <h1>位置情報記録サービス</h1>
-    <script>
-    window.onload = function() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var lat = position.coords.latitude;
-                var lon = position.coords.longitude;
+    <h1>GAS実行テストページ</h1>
+    <button id="runGAS">GAS実行</button>
 
-                fetch('https://script.google.com/macros/s/AKfycbztFqCB-g9Qi51pgbm4tMF0zMdYrJyLvSAcIwsx5B9hBwaIcivadv-J_wdMDSwO5UeB/exec?lat=' + lat + '&lon=' + lon)
+    <script>
+        document.getElementById('runGAS').addEventListener('click', function() {
+            fetch('https://script.google.com/macros/s/AKfycbztFqCB-g9Qi51pgbm4tMF0zMdYrJyLvSAcIwsx5B9hBwaIcivadv-J_wdMDSwO5UeB/exec')
                 .then(response => response.json())
-                .then(data => console.log(data));
-            });
-        } else {
-            console.log("Geolocation is not supported by this browser.");
-        }
-    };
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        });
     </script>
 </body>
 </html>
