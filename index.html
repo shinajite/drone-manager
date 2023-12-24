@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>位置情報記録サービス</title>
+</head>
+<body>
+    <h1>位置情報記録サービス</h1>
+    <script>
+    window.onload = function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var lon = position.coords.longitude;
+
+                fetch('https://script.google.com/macros/s/AKfycbw3rhstlWtfd-eyx4jRRfveunq9Ss6PNa-Vn6I_er2zll4mssWOgyxhWsIoB1Rbc5SY/exec?lat=' + lat + '&lon=' + lon)
+                .then(response => response.json())
+                .then(data => console.log(data));
+            });
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    };
+    </script>
+</body>
+</html>
