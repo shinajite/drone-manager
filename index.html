@@ -2,30 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>位置情報記録サービス</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheetへのデータ追加テスト</title>
 </head>
 <body>
-    <h1>位置情報記録サービス</h1>
+    <h1>Google Apps Script テストページ</h1>
     <script>
-    function sendLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var lat = position.coords.latitude;
-                var lon = position.coords.longitude;
-
-                var url = 'https://script.google.com/macros/s/AKfycbyd8q4t8Y2UuW4iIaPgn2giZptKqmJwNS5szWumREoSnIity4yt-826RzQSihsTY99P/exec';
-                url += '?lat=' + lat + '&lon=' + lon;
-
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.error('Error:', error));
+    window.onload = function() {
+        fetch('https://script.google.com/macros/s/AKfycbyd8q4t8Y2UuW4iIaPgn2giZptKqmJwNS5szWumREoSnIity4yt-826RzQSihsTY99P/exec')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert('データの追加に成功しました。');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('データの追加に失敗しました。');
             });
-        } else {
-            console.log("Geolocation is not supported by this browser.");
-        }
-    }
-    sendLocation();
+    };
     </script>
 </body>
 </html>
