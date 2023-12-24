@@ -12,7 +12,7 @@
                 var lat = position.coords.latitude;
                 var lon = position.coords.longitude;
 
-                fetch('https://script.google.com/macros/s/AKfycbw3rhstlWtfd-eyx4jRRfveunq9Ss6PNa-Vn6I_er2zll4mssWOgyxhWsIoB1Rbc5SY/exec?lat=' + lat + '&lon=' + lon)
+                fetch('https://script.google.com/macros/s/AKfycbwrW1mNckXLb18IZclxdNPYKgaStW_o7u_aNTBYBXbtIzIARBDc1Hpm9jEL6i9h3gZO/exec?lat=' + lat + '&lon=' + lon)
                 .then(response => response.json())
                 .then(data => console.log(data));
             });
