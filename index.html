@@ -12,7 +12,7 @@
 
     <script>
         document.getElementById('runGAS').addEventListener('click', function() {
-            fetch('https://script.google.com/macros/s/AKfycbztFqCB-g9Qi51pgbm4tMF0zMdYrJyLvSAcIwsx5B9hBwaIcivadv-J_wdMDSwO5UeB/exec')
+            fetch('TypeError: ContentService.createTextOutput(...).setMimeType(...).setHeaders is not a function（行 15、ファイル「コード」）')
                 .then(response => response.json())
                 .then(data => console.log(data))
                 .catch(error => console.error('Error:', error));
